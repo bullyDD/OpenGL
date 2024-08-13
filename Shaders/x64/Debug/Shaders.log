@@ -1,3 +1,4 @@
-﻿  Renderer.cpp
-C:\Users\HP\Documents\C++\Graphics_Programming\LearnOpenGL\Shaders\Renderer.cpp(163,12): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
-  Shaders.vcxproj -> C:\Users\HP\Documents\C++\Graphics_Programming\LearnOpenGL\Shaders\x64\Debug\Shaders.exe
+﻿  Shader.cpp
+C:\Users\HP\source\repos\bullyDD\OpenGL\Shaders\Shader.cpp(69,7): warning C4101: 'infoLog' : variable locale non référencée
+C:\Users\HP\source\repos\bullyDD\OpenGL\Shaders\Shader.cpp(68,6): warning C4101: 'success' : variable locale non référencée
+  Shaders.vcxproj -> C:\Users\HP\source\repos\bullyDD\OpenGL\Shaders\x64\Debug\Shaders.exe

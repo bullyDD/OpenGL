@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\HP\Documents\C++\Graphics_Programming\LearnOpenGL\Shaders\x64\Debug\Shaders.exe</FullPath>
+      <FullPath>C:\Users\HP\source\repos\bullyDD\OpenGL\Shaders\x64\Debug\Shaders.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

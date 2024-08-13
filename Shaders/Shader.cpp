@@ -71,44 +71,20 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath)
 	// Vertex shader
 	unsigned int vertex = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vertex, 1, &vShaderCode, NULL);
-	//CheckForErrors(vertex, "VERTEX");
-
-	glCompileShader(vertex);
-	glGetShaderiv(vertex, GL_COMPILE_STATUS, &success);
-	if (!success)
-	{
-		glGetShaderInfoLog(vertex, BUFFER_SIZE, NULL, infoLog);
-		std::cout << "ERROR::SHADER::VERTEX" << ": " << infoLog;
-	}
+	CheckForErrors(vertex, "VERTEX");
 
 
 	// fragment shader
 	unsigned int fragment = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(fragment, 1, &fShaderCode, NULL);
-	//CheckForErrors(fragment, "FRAGMENT");
+	CheckForErrors(fragment, "FRAGMENT");
 
-	glCompileShader(fragment);
-	glGetShaderiv(fragment, GL_COMPILE_STATUS, &success);
-	if (!success)
-	{
-		glGetShaderInfoLog(fragment, BUFFER_SIZE, NULL, infoLog);
-		std::cout << "ERROR::SHADER::fragment" << ": " << infoLog;
-	}
 
 	// Shader program
 	ID = glCreateProgram();
 	glAttachShader(ID, vertex);
 	glAttachShader(ID, fragment);
-	//CheckForErrors(ID, "PROGRAM");
-
-	glLinkProgram(ID);
-
-	glGetProgramiv(ID, GL_LINK_STATUS, &success);
-	if (!success)
-	{
-		glGetProgramInfoLog(ID, BUFFER_SIZE, NULL, infoLog);
-		std::cout << "ERROR::SHADER::PROGRAM" << ": " << infoLog;
-	}
+	CheckForErrors(ID, "PROGRAM");
 
 	// Delete unused shaders
 	glDeleteShader(vertex);
