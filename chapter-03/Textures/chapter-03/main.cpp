@@ -7,9 +7,19 @@
 * @date : 08.2024
 * 
 */
+#include "Renderer.h"
 
 int main(int argc, char* argv[])
 {
+	Renderer renderer3D;
+	bool success = renderer3D.Initialize();
+
+	if (success)
+	{
+		renderer3D.Runloop();
+	}
+
+	renderer3D.Shutdown();
 
 	return 0;
 }
