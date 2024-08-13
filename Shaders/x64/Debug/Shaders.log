@@ -1,0 +1,3 @@
+﻿  Renderer.cpp
+C:\Users\HP\Documents\C++\Graphics_Programming\LearnOpenGL\Shaders\Renderer.cpp(163,12): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+  Shaders.vcxproj -> C:\Users\HP\Documents\C++\Graphics_Programming\LearnOpenGL\Shaders\x64\Debug\Shaders.exe
