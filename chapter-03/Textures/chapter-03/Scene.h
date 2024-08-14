@@ -10,7 +10,7 @@ public:
 		EDISABLE
 	};
 
-	Scene();
+	Scene(class Renderer*);
 	~Scene();
 
 	bool Initialize();
@@ -18,23 +18,15 @@ public:
 	void Draw();
 	//void SetShader(class Shader*);
 
+	// Getter/Setter
+	inline EState GetSceneState() const { return mSate; }
+
 private:
 
 	unsigned int mVAO, mVBO, mEBO;
 
-	float *vertices = new float[
-		 0.5f,  0.5f, 0.0f,
-		 0.5f, -0.5f, 0.0f,
-		-0.5f, -0.5f, 0.0f,
-		-0.5f,  0.5f, 0.0f
-	];
-
-	int *indices = new int[
-		0, 1, 3,
-		1, 2, 3
-	];
-
 	EState mSate;
+	class Renderer* mRenderer;
 	class Shader* mShader;
 };
 

@@ -11,9 +11,12 @@
 * 
 */
 
-#pragma once
+#ifndef RENDER_H
+#define RENDER_H
 
+#define GLFW_INCLUDE_NONE
 #include "GLFW/glfw3.h"
+
 #include <vector>
 
 class Renderer
@@ -51,7 +54,13 @@ private:
 	 // MEMBER VARIABLES //
 	//------------------//
 
+	const int WIDTH = 800;
+	const int HEIGHT = 600;
+	const char* TITLE = "Learn Opengl - Textures";
+
 	GLFWwindow* mWindow;
-	std::vector<Scene*> mScenes;
+	std::vector<class Scene*> mScenes;
 
 };
+
+#endif

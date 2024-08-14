@@ -42,4 +42,12 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="vShaderSource.glsl">
+      <Filter>Fichiers sources</Filter>
+    </None>
+    <None Include="fShaderSource.glsl">
+      <Filter>Fichiers sources</Filter>
+    </None>
+  </ItemGroup>
 </Project>

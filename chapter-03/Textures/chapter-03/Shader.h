@@ -16,6 +16,9 @@ public:
 	unsigned int ID;
 
 	// Default constructor
+	Shader();
+
+	// Constructor with 2 arguments
 	Shader(const char* vertexPath, const char* fragmentPath);
 
 	// Destructor

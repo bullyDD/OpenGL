@@ -13,6 +13,10 @@ const int BUFFER_SIZE = 1024;
 
 void CheckForErrors(unsigned int, const char*);
 
+Shader::Shader()
+{
+}
+
 Shader::Shader(const char* vertexPath, const char* fragmentPath)
 {
 	// 1. file for storing vertex, fragment shader source code
@@ -61,8 +65,8 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath)
 
 	// Fragment
 	unsigned int fragment = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(vertex, 1, &fShaderCode, NULL);
-	CheckForErrors(vertex, "FRAGMENT");
+	glShaderSource(fragment, 1, &fShaderCode, NULL);
+	CheckForErrors(fragment, "FRAGMENT");
 
 	// Program
 	ID = glCreateProgram();
@@ -73,12 +77,14 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath)
 	// Once the shader program has link each shader, we can delete them
 	glDeleteShader(vertex);
 	glDeleteShader(fragment);
+	
 }
 
 Shader::~Shader()
 {
 	std::cout << "SHADER::DESTRUCTOR::CALL" << std::endl;
 }
+
 
 void Shader::Use()
 {

@@ -11,15 +11,15 @@
 
 int main(int argc, char* argv[])
 {
-	Renderer renderer3D;
-	bool success = renderer3D.Initialize();
+	Renderer renderer2D;
+	bool success = renderer2D.Initialize();
 
 	if (success)
 	{
-		renderer3D.Runloop();
+		renderer2D.Runloop();
 	}
 
-	renderer3D.Shutdown();
+	renderer2D.Shutdown();
 
 	return 0;
 }
