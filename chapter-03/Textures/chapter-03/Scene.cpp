@@ -2,6 +2,9 @@
 #include "Shader.h"
 #include "Renderer.h"
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
 
 float vertices[] = {
      0.5,  0.5, 0.0,
@@ -20,6 +23,7 @@ Scene::Scene(class Renderer* renderer) : mShader(nullptr), mSate(EState::EACTIVE
     mVAO = 0;
     mVBO = 0;
     mEBO = 0;
+    mTexture = 0;
 
     // Ajoute la scene actuelle si son etat courant est actif
     mRenderer->Add(this);
@@ -41,18 +45,18 @@ bool Scene::Initialize()
         Une scene est constituée de Nodes qui représente des GameObject.
 
         Initialiser une scene revient pour l'instant à :
+
             1. Generer les buffers objects
             2. Créer des zones mémoires dans le GPU
             3. Envoyer les données dans la mémoire du GPU.
-            4. Activer le programme shader
+            4. Activer le programme shader.
+
     */
-    const char* vertex = "vShaderSource.glsl";
+
+    const char* vertex   = "vShaderSource.glsl";
     const char* fragment = "fShaderSource.glsl";
 
-    //Shader shader(vertex, fragment);
     mShader = new Shader(vertex, fragment);
-
-    std::cout << "shader = " << mShader->ID << std::endl;
 
     if (mShader == nullptr)
     {
@@ -60,6 +64,9 @@ bool Scene::Initialize()
         std::cout << "SCENE::SHADER::ALLOCATION_FAILED" << std::endl;
         return false;
     }
+
+    this->mSate = EState::EACTIVE;
+    mShader->Use();
    
     // 1. Generer les buffers objects
     glGenVertexArrays(1, &mVAO);
@@ -92,8 +99,12 @@ bool Scene::Initialize()
 
     glBindVertexArray(mVAO); 
 
-    this->mSate = EState::EACTIVE;
-    mShader->Use();
+     // Textures : Generate, bind and load image
+    //------------------------------------------
+
+    glGenTextures(1, &mTexture);
+    glBindTexture(GL_TEXTURE_2D, mTexture);
+    // TODO 
     
     return true;
 }
