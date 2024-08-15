@@ -47,7 +47,7 @@ public:
 private:
 
 	void ProcessInput();
-	void Update(float);
+	void Update();
 	void Render();
 
 	  //------------------//
@@ -61,6 +61,7 @@ private:
 	GLFWwindow* mWindow;
 	std::vector<class Scene*> mScenes;
 
+	float mixValue;
 };
 
 #endif

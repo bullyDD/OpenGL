@@ -1,2 +1,5 @@
-﻿  Scene.cpp
+﻿  Renderer.cpp
+C:\Users\HP\source\repos\bullyDD\OpenGL\chapter-03\Textures\chapter-03\Renderer.cpp(118,18): warning C4305: '+=' : troncation de 'double' à 'float'
+  Scene.cpp
+  Génération de code en cours...
   chapter-03.vcxproj -> C:\Users\HP\source\repos\bullyDD\OpenGL\chapter-03\Textures\x64\Debug\chapter-03.exe

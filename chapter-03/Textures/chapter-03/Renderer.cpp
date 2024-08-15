@@ -11,7 +11,7 @@
 void frameBufferSize_Cb(GLFWwindow*, int, int);
 
 
-Renderer::Renderer() : mWindow(nullptr)
+Renderer::Renderer() : mWindow(nullptr), mixValue(0.0f)
 {
 }
 
@@ -26,6 +26,7 @@ Renderer::~Renderer()
 	std::cout << "RENDERER::DESTRUCTOR::CALL" << std::endl;
 	while (!mScenes.empty())
 	{
+		// Object not delete : Memory waste
 		mScenes.pop_back();
 	}
 }
@@ -89,7 +90,7 @@ void Renderer::Runloop()
 	{
 		float dt = static_cast<float>(glfwGetTime());
 		ProcessInput();
-		Update(dt);
+		Update();
 		Render();
 	}
 }
@@ -111,10 +112,20 @@ void Renderer::ProcessInput()
 	{
 		glfwSetWindowShouldClose(mWindow, GL_TRUE);
 	}
+	// TODO mixValue
+	if (glfwGetKey(mWindow, GLFW_KEY_UP) == GLFW_PRESS)
+	{
+		mixValue += 0.1;
+	}
 }
 
-void Renderer::Update(float dt)
+void Renderer::Update()
 {
+	std::cout << "Dt from Renderer = " << mixValue << std::endl;
+	for (auto scene : mScenes)
+	{
+		scene->Update(mixValue);
+	}
 }
 
 void Renderer::Render()

@@ -23,7 +23,7 @@ public:
 
 private:
 
-	unsigned int mVAO, mVBO, mEBO, mTexture;
+	unsigned int mVAO, mVBO, mEBO, mTexture1, mTexture2;
 
 	EState mSate;
 	class Renderer* mRenderer;
