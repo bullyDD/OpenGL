@@ -115,15 +115,15 @@ void Renderer::ProcessInput()
 	// TODO mixValue
 	if (glfwGetKey(mWindow, GLFW_KEY_UP) == GLFW_PRESS)
 	{
-		mixValue += 0.1;
+		mixValue += 1.0f;
 	}
 }
 
 void Renderer::Update()
 {
-	std::cout << "Dt from Renderer = " << mixValue << std::endl;
 	for (auto scene : mScenes)
 	{
+		std::cout << "ID = " << scene << std::endl;
 		scene->Update(mixValue);
 	}
 }

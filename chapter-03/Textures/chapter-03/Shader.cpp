@@ -139,6 +139,5 @@ void CheckForErrors(unsigned int shader, const char* type)
 			glGetProgramInfoLog(shader, BUFFER_SIZE, NULL, infoLog);
 			std::cout << "ERROR::SHADER::" << type << ":" << infoLog << std::endl;
 		}
-
 	}
 }
